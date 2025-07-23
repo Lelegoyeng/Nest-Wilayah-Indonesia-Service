@@ -22,9 +22,22 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## ✨Description
+Nest-Wilayah-Indonesia-Service is an open-source project designed to simplify access to Indonesia’s administrative region data for individuals, application developers, educational institutions, and government agencies.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This service provides standardized and structured APIs for managing and retrieving:
+
+Provinces
+
+Regencies/Cities
+
+Districts (Kecamatan)
+
+Sub-districts/Villages (Kelurahan/Desa)
+
+Postal Codes
+
+Built with NestJS, a modern and scalable progressive framework for Node.js, this service ensures efficient data handling and integration for various systems and platforms.
 
 ## Project setup
 
