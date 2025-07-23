@@ -13,7 +13,7 @@ async function bootstrap() {
 	// Swagger Setup
 	const swaggerTheme = new SwaggerTheme();
 	const config = new DocumentBuilder()
-		.setTitle("Indonesia Region Service")
+		.setTitle("Indonesia Region Service 2025")
 		.setVersion("1.0")
 		.build();
 

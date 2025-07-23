@@ -1,13 +1,13 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "./prisma/prisma.service";
-import { GetAllDto } from "./utils/dto/get-all.dto";
 import { baseResponse } from "./types/response";
+import { ProvincesDto } from "./dto/provinces.dto";
 
 @Injectable()
 export class AppService {
 	constructor(private readonly prismaService: PrismaService) {}
 
-	async provinces(dto: GetAllDto): Promise<baseResponse> {
+	async provinces(dto: ProvincesDto): Promise<baseResponse> {
 		const { search, orderBy = "createdAt", order = "desc", take } = dto;
 		// const queryOptions: any = {
 		// 	select: {

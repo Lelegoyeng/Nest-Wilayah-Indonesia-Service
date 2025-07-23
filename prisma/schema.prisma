@@ -7,13 +7,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Bundle {
-  id              Int      @id @default(autoincrement())
-  publicId        String   @unique @default(uuid())
-  branchCodes     Json
-  name            String   @unique
-  adjustablePrice Boolean
-  note            String?
-  price           Decimal  @db.Decimal(15, 2)
-  createdAt       DateTime @default(now())
+model Provinces {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+}
+
+model Cities {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+}
+
+model Districts {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+}
+
+model Subdistricts {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
 }

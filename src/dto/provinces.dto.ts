@@ -1,7 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsOptional } from "class-validator";
 
-export class GetAllDto {
+export class ProvincesDto {
 	@IsOptional()
 	@ApiProperty({ required: false })
 	page?: number = 0;
@@ -12,7 +12,7 @@ export class GetAllDto {
 
 	@IsOptional()
 	@ApiProperty({ required: false })
-	orderBy?: string = "id";
+	orderBy?: string = "name";
 
 	@IsOptional()
 	@ApiProperty({ required: false })

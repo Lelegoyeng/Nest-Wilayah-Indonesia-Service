@@ -1,14 +1,29 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { AppService } from './app.service';
-import { GetAllDto } from './utils/dto/get-all.dto';
 import { baseResponse } from './types/response';
+import { ProvincesDto } from './dto/provinces.dto';
 
 @Controller('')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('Provinces')
-  provinces(@Query() dto: GetAllDto): Promise<baseResponse> {
+  @Get('provinces')
+  provinces(@Query() dto: ProvincesDto): Promise<baseResponse> {
+    return this.appService.provinces(dto);
+  }
+
+  @Get('cities')
+  cities(@Query() dto: ProvincesDto): Promise<baseResponse> {
+    return this.appService.provinces(dto);
+  }
+
+  @Get('districts')
+  districts(@Query() dto: ProvincesDto): Promise<baseResponse> {
+    return this.appService.provinces(dto);
+  }
+
+  @Get('subdistricts')
+  subdistricts(@Query() dto: ProvincesDto): Promise<baseResponse> {
     return this.appService.provinces(dto);
   }
 }
