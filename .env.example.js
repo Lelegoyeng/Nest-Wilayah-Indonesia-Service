@@ -1,3 +1,3 @@
-SERVER=192.168.60.44
+SERVER=localhost
 PORT=9090
 DATABASE_URL="mysql://root:lelegoyeng@localhost:3307/db_lelegoyeng"
