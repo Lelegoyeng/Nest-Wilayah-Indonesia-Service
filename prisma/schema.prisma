@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Bundle {
+  id              Int      @id @default(autoincrement())
+  publicId        String   @unique @default(uuid())
+  branchCodes     Json
+  name            String   @unique
+  adjustablePrice Boolean
+  note            String?
+  price           Decimal  @db.Decimal(15, 2)
+  createdAt       DateTime @default(now())
+}
