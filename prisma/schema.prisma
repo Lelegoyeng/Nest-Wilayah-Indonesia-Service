@@ -8,25 +8,27 @@ datasource db {
 }
 
 model Provinces {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
+  id     Int      @id @default(autoincrement())
+  name   String
+  Cities Cities[]
 }
 
 model Cities {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
+  id         Int         @id @default(autoincrement())
+  name       String
+  provinceId Int
+  province   Provinces   @relation(fields: [provinceId], references: [id])
+  districts  Districts[]
 }
 
 model Districts {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
+  id     Int    @id @default(autoincrement())
+  name   String
+  cityId Int
+  city   Cities @relation(fields: [cityId], references: [id])
 }
 
 model Subdistricts {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
+  id   Int    @id @default(autoincrement())
+  name String
 }
