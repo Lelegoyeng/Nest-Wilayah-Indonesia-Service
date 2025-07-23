@@ -1,12 +1,14 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { AppService } from './app.service';
+import { GetAllDto } from './utils/dto/get-all.dto';
+import { baseResponse } from './types/response';
 
-@Controller()
+@Controller('')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Get('Provinces')
+  provinces(@Query() dto: GetAllDto): Promise<baseResponse> {
+    return this.appService.provinces(dto);
   }
 }
