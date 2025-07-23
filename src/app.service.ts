@@ -3,6 +3,7 @@ import { PrismaService } from './prisma/prisma.service';
 import { baseResponse } from './types/response';
 import { ProvincesDto } from './dto/provinces.dto';
 import { CitiesDto } from './dto/cities.dto';
+import { DistrictsDto } from './dto/districts.dto';
 
 @Injectable()
 export class AppService {
@@ -47,6 +48,34 @@ export class AppService {
     }
 
     const data = await this.prismaService.cities.findMany(queryOptions);
+
+    const formatted = data.map((item) => ({
+      value: item.id,
+      label: item.name
+    }));
+
+    return { data: formatted };
+  }
+
+  async districts(dto: DistrictsDto): Promise<baseResponse> {
+    const { cityId, search, take = 20 } = dto;
+
+    if (!cityId) {
+      throw new BadRequestException('City ID is required');
+    }
+
+    const queryOptions: any = {
+      take: Number(take),
+      where: { provinceId: Number(cityId) }
+    };
+
+    if (search) {
+      queryOptions.where.name = {
+        contains: search
+      };
+    }
+
+    const data = await this.prismaService.districts.findMany(queryOptions);
 
     const formatted = data.map((item) => ({
       value: item.id,

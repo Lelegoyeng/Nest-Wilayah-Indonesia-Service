@@ -21,7 +21,7 @@ export class AppController {
 
   @Get('districts')
   districts(@Query() dto: DistrictsDto): Promise<baseResponse> {
-    return this.appService.provinces(dto);
+    return this.appService.districts(dto);
   }
 
   @Get('subdistricts')

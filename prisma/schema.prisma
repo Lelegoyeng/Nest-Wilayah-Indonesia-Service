@@ -17,7 +17,7 @@ model Cities {
   id         Int         @id @default(autoincrement())
   name       String
   provinceId Int
-  province   Provinces   @relation(fields: [provinceId], references: [id])
+  province   Provinces   @relation(fields: [provinceId], references: [id], onDelete: Cascade)
   districts  Districts[]
 }
 
@@ -25,7 +25,7 @@ model Districts {
   id     Int    @id @default(autoincrement())
   name   String
   cityId Int
-  city   Cities @relation(fields: [cityId], references: [id])
+  city   Cities @relation(fields: [cityId], references: [id], onDelete: Cascade)
 }
 
 model Subdistricts {
