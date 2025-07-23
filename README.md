@@ -54,3 +54,13 @@ $ pnpm run start:prod
 ```bash
 $ pnpm run seed
 ```
+
+## API 
+
+```bash
+# Api Base
+http://localhost:9090/api
+
+# Swagger
+http://localhost:9090/api/swagger
+```
